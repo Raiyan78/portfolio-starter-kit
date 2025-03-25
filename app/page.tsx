@@ -11,7 +11,7 @@ export default function Page() {
       {/* 2) Render your photo */}
       <div className="mb-4">
         <Image
-          src="/public/images/pic.jpg" // path relative to public folder
+          src="/images/pic.jpg" // path relative to public folder
           alt="Photo of Raiyan"
           width={200}              // adjust to your liking
           height={200}             // adjust to your liking
@@ -20,11 +20,10 @@ export default function Page() {
       </div>
 
       <p className="mb-4">
-        {`I'm a Vim enthusiast and tab advocate, finding unmatched efficiency in
-        Vim's keystroke commands and tabs' flexibility for personal viewing
-        preferences. This extends to my support for static typing, where its
-        early error detection ensures cleaner code, and my preference for dark
-        mode, which eases long coding sessions by reducing eye strain.`}
+        {`I am currently working as a research assistant at ECE, North South University.
+
+      My research interest lies in the realm of quantum cryptography, where I envision to build an efficient and information theoretically secure algorithm. 
+      Ultimately, my goal is to build a world where privacy is a guaranteed facet in everyone's life.`}
       </p>
 
       <div className="my-8">
