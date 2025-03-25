@@ -15,8 +15,8 @@ export default function Page() {
           <Image
             src="/images/pic.jpg"
             alt="Photo of Raiyan"
-            width={200}
-            height={200}
+            width={500}
+            height={500}
             className="rounded-full"
           />
         </div>
