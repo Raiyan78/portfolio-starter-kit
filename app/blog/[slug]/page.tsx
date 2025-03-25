@@ -85,11 +85,24 @@ export default function Blog({ params }) {
       <h1 className="title font-semibold text-2xl tracking-tighter">
         {post.metadata.title}
       </h1>
-      <div className="flex justify-between items-center mt-2 mb-8 text-sm">
+      <div className="flex flex-col mt-2 mb-8 text-sm">
         <p className="text-sm text-neutral-600 dark:text-neutral-400">
           {formatDate(post.metadata.publishedAt)}
         </p>
+        {post.metadata.doi && (
+          <p className="text-sm text-blue-600 dark:text-blue-400 mt-1">
+            <a
+              href={post.metadata.doi}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="hover:underline"
+            >
+              View Publication (DOI)
+            </a>
+          </p>
+        )}
       </div>
+
       <article className="prose">
         <CustomMDX source={post.content} />
       </article>
