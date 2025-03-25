@@ -11,7 +11,7 @@ export default function Page() {
       {/* 2) Render your photo */}
       <div className="mb-4">
         <Image
-          src="/portfolio-starter-kit/pictures/pic.jpg" // path relative to public folder
+          src="pic.jpg" // path relative to public folder
           alt="Photo of Raiyan"
           width={200}              // adjust to your liking
           height={200}             // adjust to your liking
