@@ -24,10 +24,10 @@ export default function Page() {
         {/* About Text */}
         <div>
           <p>
-            `I am currently working as a research assistant at ECE, North South University. <br />
+            I am currently working as a research assistant at ECE, North South University. <br />
 My research interest lies in the realm of quantum cryptography, 
 where I envision to build an efficient and information theoretically secure algorithm. 
-Ultimately, my goal is to build a world where privacy is a guaranteed facet in everyone's life.`
+Ultimately, my goal is to build a world where privacy is a guaranteed facet in everyone's life.
           </p>
         </div>
       </div>
