@@ -8,6 +8,14 @@ import { SpeedInsights } from '@vercel/speed-insights/next'
 import Footer from './components/footer'
 import { baseUrl } from './sitemap'
 
+import { Playfair_Display } from 'next/font/google'
+
+const playfair = Playfair_Display({
+  subsets: ['latin'],
+  variable: '--font-playfair',
+  display: 'swap',
+})
+
 export const metadata: Metadata = {
   metadataBase: new URL(baseUrl),
   title: {
@@ -48,8 +56,7 @@ export default function RootLayout({
       lang="en"
       className={cx(
         'text-black bg-white dark:text-white dark:bg-black',
-        GeistSans.variable,
-        GeistMono.variable
+        playfair.variable,
       )}
     >
       <body className="antialiased max-w-xl mx-4 mt-8 lg:mx-auto">
