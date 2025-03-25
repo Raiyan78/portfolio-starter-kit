@@ -104,7 +104,7 @@ export default function Blog({ params }) {
       </div>
 
       <article className="prose">
-        <CustomMDX source={post.content} />
+        <CustomMDX source={post.metadata.summary} />
       </article>
     </section>
   )
