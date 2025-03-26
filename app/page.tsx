@@ -5,9 +5,8 @@ export default function Page() {
   return (
     <section>
       <h1 className="mb-8 text-2xl font-semibold tracking-tighter">
-        A bit about me...
+        A bit about ⟨m|e⟩...
       </h1>
-
       {/* Wrap the image + about text in a flex container */}
       <div className="flex items-start gap-4 mb-8">
         {/* Photo */}
