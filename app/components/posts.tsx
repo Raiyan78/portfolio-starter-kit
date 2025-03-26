@@ -27,6 +27,22 @@ export function BlogPosts() {
               </p>
               <p className="text-neutral-900 dark:text-neutral-100 tracking-tight">
                 {post.metadata.title}
+                
+                {post.metadata.authors && post.metadata.authors.length > 0 && (
+                    <p className="text-sm text-neutral-700 dark:text-neutral-300 mt-1">
+                      <strong>Authors:</strong>{' '}
+                      {post.metadata.authors.split(/\s*,\s*/).map((author, index, array) => {
+                        const isMe = author.trim() === 'Raiyan Rahman'
+                        return (
+                          <span key={index}>
+                            {isMe ? <u>{author}</u> : author}
+                            {index < array.length - 1 ? ', ' : ''}
+                          </span>
+                        )
+                      })}
+                    </p>
+                  )}
+
               </p>
             </div>
           </Link>
