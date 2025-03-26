@@ -40,6 +40,9 @@ export default function Page() {
 
       {/* Blog Posts */}
       <div className="my-8">
+      <h1 className="mb-8 text-2xl font-semibold tracking-tighter">
+        News & Publications
+      </h1>
         <BlogPosts />
       </div>
     </section>

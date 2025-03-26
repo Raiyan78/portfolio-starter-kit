@@ -2,13 +2,13 @@ import Link from 'next/link'
 
 const navItems = {
   '/': {
-    name: 'home',
+    name: 'Home',
   },
   '/blog': {
-    name: 'research',
+    name: 'Research',
   },
   'https://scholar.google.com/citations?user=QrDmxHwAAAAJ&hl=en': {
-    name: 'scholar',
+    name: 'G Scholar',
   },
 }
 
