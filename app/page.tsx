@@ -36,10 +36,16 @@ export default function Page() {
           </p>
 
           <div>
-            <p style={{ fontFamily: "'Courier New', Courier, monospace", fontSize: '10px' }}>
+            <p style={{ 
+              fontFamily: "'Courier New', Courier, monospace", 
+              fontSize: '14px',
+              color: 'yellow' 
+            }}>
               email: raiyanrahman78 [at] gmail [dot] com
             </p>
-          </div>
+        </div>
+
+        
         </div>
 
       </div>
