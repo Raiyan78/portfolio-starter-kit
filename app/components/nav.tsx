@@ -10,6 +10,9 @@ const navItems = {
   'https://scholar.google.com/citations?user=QrDmxHwAAAAJ&hl=en': {
     name: 'G Scholar',
   },
+  'https://drive.google.com/drive/folders/1IKJm4JmsiNFHwmOzlcApLOJ3rEBHXPLr': {
+    name: 'CV',
+  },
 }
 
 export function Navbar() {
