@@ -38,10 +38,10 @@ export default function Page() {
             <br />
             <p style={{ 
               fontFamily: "'Courier New', Courier, monospace", 
-              fontSize: '14px',
+              fontSize: '16px',
               color: 'yellow' 
             }}>
-              email: raiyanrahman78 [at] gmail [dot] com
+              Email: raiyanrahman78 [at] gmail [dot] com
             </p>
         </div>
 

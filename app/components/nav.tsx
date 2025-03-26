@@ -27,9 +27,9 @@ const navItems = {
     name: 'Research',
   },
   'https://scholar.google.com/citations?user=QrDmxHwAAAAJ&hl=en': {
-    name: 'G Scholar',
+    name: 'Google Scholar',
   },
-  'https://drive.google.com/drive/folders/1IKJm4JmsiNFHwmOzlcApLOJ3rEBHXPLr': {
+  '/cv.pdf': {
     name: 'CV',
   },
 }
