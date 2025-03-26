@@ -18,28 +18,25 @@ function parseFrontmatter(fileContent: string) {
   let frontMatterLines = frontMatterBlock.trim().split('\n')
   let metadata: Partial<Metadata> = {}
 
-
-
   frontMatterLines.forEach((line) => {
     let [key, ...valueArr] = line.split(': ')
     let value = valueArr.join(': ').trim()
     value = value.replace(/^['"](.*)['"]$/, '$1') // Remove quotes
     metadata[key.trim() as keyof Metadata] = value
   })
-  console.log('Parsed metadata:', metadata)
   return { metadata: metadata as Metadata, content }
 }
 
-function getMDXFiles(dir) {
+function getMDXFiles(dir: string) {
   return fs.readdirSync(dir).filter((file) => path.extname(file) === '.mdx')
 }
 
-function readMDXFile(filePath) {
+function readMDXFile(filePath: string) {
   let rawContent = fs.readFileSync(filePath, 'utf-8')
   return parseFrontmatter(rawContent)
 }
 
-function getMDXData(dir) {
+function getMDXData(dir: string) {
   let mdxFiles = getMDXFiles(dir)
   return mdxFiles.map((file) => {
     let { metadata, content } = readMDXFile(path.join(dir, file))
@@ -54,7 +51,11 @@ function getMDXData(dir) {
 }
 
 export function getBlogPosts() {
-  return getMDXData(path.join(process.cwd(), 'app', 'blog', 'posts'))
+  const posts = getMDXData(path.join(process.cwd(), 'app', 'blog', 'posts'))
+  // Sort posts by publishedAt date in descending order (newest first)
+  posts.sort((a, b) => new Date(b.metadata.publishedAt).getTime() - new Date(a.metadata.publishedAt).getTime())
+  // Return only the latest five posts
+  return posts.slice(0, 5)
 }
 
 export function formatDate(date: string, includeRelative = false) {
