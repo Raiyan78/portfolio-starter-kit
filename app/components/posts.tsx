@@ -70,22 +70,27 @@ export function BlogPosts() {
               </p>
 
               <div className="text-neutral-900 dark:text-neutral-100 tracking-tight">
-                <p className="font-medium mt-0.5">{post.metadata.title}</p>
+                <p className="font-medium">{post.metadata.title}</p>
 
-                {post.metadata.authors && (
-                  <p className="text-sm text-neutral-700 dark:text-neutral-300 mt-1">
-                    <strong>Authors:</strong>{' '}
-                    {post.metadata.authors.split(/\s*,\s*/).map((author, index, array) => {
-                      const isMe = author.trim() === 'Raiyan Rahman'
-                      return (
-                        <span key={index}>
-                          {isMe ? <u>{author}</u> : author}
-                          {index < array.length - 1 ? ', ' : ''}
-                        </span>
-                      )
-                    })}
-                  </p>
-                )}
+                <p className="text-sm text-neutral-700 dark:text-neutral-300 mt-1">
+                  {post.metadata.authors ? (
+                    <>
+                      <strong>Authors:</strong>{' '}
+                      {post.metadata.authors.split(/\s*,\s*/).map((author, index, array) => {
+                        const isMe = author.trim() === 'Raiyan Rahman'
+                        return (
+                          <span key={index}>
+                            {isMe ? <u>{author}</u> : author}
+                            {index < array.length - 1 ? ', ' : ''}
+                          </span>
+                        )
+                      })}
+                    </>
+                  ) : (
+                    // Empty element for spacing consistency
+                    <span>&nbsp;</span>
+                  )}
+                </p>
               </div>
             </div>
 
