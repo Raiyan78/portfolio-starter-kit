@@ -8,6 +8,7 @@ type Metadata = {
   image?: string
   doi?: string 
   authors?: string
+}
 
 function parseFrontmatter(fileContent: string) {
   let frontmatterRegex = /---\s*([\s\S]*?)\s*---/
