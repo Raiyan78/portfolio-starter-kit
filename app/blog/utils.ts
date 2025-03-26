@@ -41,20 +41,19 @@ function getMDXData(dir: string) {
   return mdxFiles.map((file) => {
     let { metadata, content } = readMDXFile(path.join(dir, file))
     let slug = path.basename(file, path.extname(file))
-
-    return {
-      metadata,
-      slug,
-      content,
-    }
+    return { metadata, slug, content }
   })
 }
 
-export function getBlogPosts() {
+// This function returns all blog posts, sorted by published date (newest first)
+export function getAllBlogPosts() {
   const posts = getMDXData(path.join(process.cwd(), 'app', 'blog', 'posts'))
-  // Sort posts by publishedAt date in descending order (newest first)
-  posts.sort((a, b) => new Date(b.metadata.publishedAt).getTime() - new Date(a.metadata.publishedAt).getTime())
-  // Return only the latest five posts
+  return posts.sort((a, b) => new Date(b.metadata.publishedAt).getTime() - new Date(a.metadata.publishedAt).getTime())
+}
+
+// This function returns only the latest five blog posts
+export function getBlogPosts() {
+  const posts = getAllBlogPosts()
   return posts.slice(0, 5)
 }
 
@@ -70,7 +69,6 @@ export function formatDate(date: string, includeRelative = false) {
   let daysAgo = currentDate.getDate() - targetDate.getDate()
 
   let formattedDate = ''
-
   if (yearsAgo > 0) {
     formattedDate = `${yearsAgo}y ago`
   } else if (monthsAgo > 0) {
@@ -90,6 +88,5 @@ export function formatDate(date: string, includeRelative = false) {
   if (!includeRelative) {
     return fullDate
   }
-
   return `${fullDate} (${formattedDate})`
 }
