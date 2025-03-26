@@ -51,12 +51,13 @@ export function Navbar() {
                     className="transition-all hover:text-neutral-800 dark:hover:text-neutral-200 flex items-center relative py-1 px-2 m-1"
                     {...(isExternal ? { target: '_blank', rel: 'noopener noreferrer' } : {})}
                   >
-                    {name}
                     {isExternal && (
                       <span className="ml-1">
                         <ArrowIcon />
                       </span>
                     )}
+                    {name}
+                    
                   </a>
                 </Link>
               )
