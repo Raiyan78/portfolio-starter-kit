@@ -12,8 +12,7 @@ export default function Footer() {
 
   return (
     <footer className="mb-16 text-center text-neutral-600 dark:text-neutral-300">
-      <p>Last edited on {lastEdited}</p>
-      <p>Built with Next.js</p>
+      <p>Last edited on {lastEdited}. Built with Next.js</p>
     </footer>
   );
 }
