@@ -5,7 +5,7 @@ type Metadata = {
   type: string
   title: string
   publishedAt: string
-  summary: string
+  summary?: string
   image?: string
   doi?: string 
   authors?: string
@@ -48,16 +48,51 @@ function getMDXData(dir: string) {
 }
 
 // This function returns all blog posts, sorted by published date (newest first)
+// export function getAllBlogPosts() {
+//   const posts = getMDXData(path.join(process.cwd(), 'app', 'blog', 'posts'))
+//   return posts.sort((a, b) => new Date(b.metadata.publishedAt).getTime() - new Date(a.metadata.publishedAt).getTime())
+// }
+
 export function getAllBlogPosts() {
   const posts = getMDXData(path.join(process.cwd(), 'app', 'blog', 'posts'))
-  return posts.sort((a, b) => new Date(b.metadata.publishedAt).getTime() - new Date(a.metadata.publishedAt).getTime())
+
+  const updatedPosts = posts.map((post) => {
+    const isNews = post.metadata.type === 'news'
+    const hasNoDate = !post.metadata.publishedAt?.trim()
+
+    if (isNews && hasNoDate) {
+      post.metadata.publishedAt = new Date().toISOString().split('T')[0] // 'YYYY-MM-DD'
+    }
+
+    return post
+  })
+
+  return updatedPosts.sort(
+    (a, b) =>
+      new Date(b.metadata.publishedAt).getTime() -
+      new Date(a.metadata.publishedAt).getTime()
+  )
 }
 
+
 export function getArticles() {
-  const posts = getAllBlogPosts().filter((post) =>
-    ['journal', 'conference'].includes(post.metadata.type)
-  )
-  return posts
+  const dir = path.join(process.cwd(), 'app', 'blog', 'posts')
+  const mdxFiles = getMDXFiles(dir)
+
+  const articles = mdxFiles
+    .map((file) => {
+      const { metadata, content } = readMDXFile(path.join(dir, file))
+      const slug = path.basename(file, path.extname(file))
+      return { metadata, slug, content }
+    })
+    .filter((post) => ['journal', 'conference'].includes(post.metadata.type))
+    .sort(
+      (a, b) =>
+        new Date(b.metadata.publishedAt).getTime() -
+        new Date(a.metadata.publishedAt).getTime()
+    )
+
+  return articles
 }
 
 // This function returns only the latest five blog posts
