@@ -101,7 +101,7 @@ export function BlogPosts() {
   let allBlogs = getBlogPosts()
 
   return (
-    <div className="flex flex-col gap-y-4">
+    <div className="flex flex-col gap-y-6">
       {allBlogs
         .sort(
           (a, b) =>
@@ -111,19 +111,19 @@ export function BlogPosts() {
         .map((post) => (
           <Link
             key={post.slug}
-            className="flex flex-col md:flex-row space-x-0 md:space-x-2 items-start"
             href={`/blog/${post.slug}`}
+            className="grid grid-cols-[100px_1fr] gap-x-4"
           >
-            <p className="text-neutral-600 dark:text-neutral-400 w-[100px] tabular-nums">
+            <p className="text-neutral-600 dark:text-neutral-400 tabular-nums">
               {formatDate(post.metadata.publishedAt, false)}
             </p>
 
             <div className="text-neutral-900 dark:text-neutral-100 tracking-tight">
-              <p className="font-medium mt-1">{post.metadata.title}</p>
+              <p className="font-medium">{post.metadata.title}</p>
 
               {post.metadata.authors && (
                 <p className="text-sm text-neutral-700 dark:text-neutral-300 mt-1">
-                  <strong>Authors:</strong>{' '}
+                  {/* <strong>Authors:</strong>{' '} */}
                   {post.metadata.authors
                     .split(/\s*,\s*/)
                     .map((author, index, array) => {
@@ -143,6 +143,7 @@ export function BlogPosts() {
     </div>
   )
 }
+
 
 
 
