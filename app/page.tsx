@@ -35,9 +35,11 @@ export default function Page() {
             Ultimately, my goal is to build a world where privacy is a guaranteed facet in everyone's life.
           </p>
 
+          <h3>Email</h3>: <p style="font-family: 'Courier New', Courier, monospace; font-size: 18px;">
+            raiyanrahman78 [at] gmail [dot] com
+          </p>
         </div>
-        Email: raiyanrahman78 [at] gmail [dot] com
-        <br />
+
       </div>
 
       {/* Blog Posts */}
