@@ -7,6 +7,7 @@ type Metadata = {
   summary: string
   image?: string
   doi?: string 
+  authors?: string[]
 }
 
 function parseFrontmatter(fileContent: string) {
