@@ -52,7 +52,7 @@ export function Navbar() {
                     {...(isExternal ? { target: '_blank', rel: 'noopener noreferrer' } : {})}
                   >
                     {isExternal && (
-                      <span className="ml-1">
+                      <span className="mr-2">  {/* Add some right margin */}
                         <ArrowIcon />
                       </span>
                     )}
