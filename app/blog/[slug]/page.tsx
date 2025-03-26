@@ -101,6 +101,21 @@ export default function Blog({ params }) {
             </a>
           </p>
         )}
+        {post.metadata.authors && post.metadata.authors.length > 0 && (
+          <p className="text-sm text-neutral-700 dark:text-neutral-300 mt-1">
+            <strong>Authors:</strong>{' '}
+            {post.metadata.authors.map((author, index) => {
+              const isMe = author === 'Raiyan Rahman'
+              return (
+                <span key={author}>
+                  {isMe ? <u>{author}</u> : author}
+                  {index < post.metadata.authors.length - 1 ? ', ' : ''}
+                </span>
+              )
+            })}
+          </p>
+        )}
+
       </div>
 
       <article className="prose">
