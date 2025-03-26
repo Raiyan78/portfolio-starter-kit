@@ -54,6 +54,7 @@ export function getAllBlogPosts() {
 // This function returns only the latest five blog posts
 export function getBlogPosts() {
   const posts = getAllBlogPosts()
+  console.log(posts)
   return posts.slice(0, 5)
 }
 
