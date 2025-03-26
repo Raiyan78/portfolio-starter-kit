@@ -7,16 +7,39 @@ type Metadata = {
   summary: string
   image?: string
   doi?: string 
-  // authors?: string[]
+  authors?: string[]
 }
 
+// function parseFrontmatter(fileContent: string) {
+//   let frontmatterRegex = /---\s*([\s\S]*?)\s*---/
+//   let match = frontmatterRegex.exec(fileContent)
+//   let frontMatterBlock = match![1]
+//   let content = fileContent.replace(frontmatterRegex, '').trim()
+//   let frontMatterLines = frontMatterBlock.trim().split('\n')
+//   let metadata: Partial<Metadata> = {}
 function parseFrontmatter(fileContent: string) {
-  let frontmatterRegex = /---\s*([\s\S]*?)\s*---/
+  let frontmatterRegex = /^---\s*([\s\S]*?)\s*---/
   let match = frontmatterRegex.exec(fileContent)
-  let frontMatterBlock = match![1]
+
+  if (!match) throw new Error('No frontmatter found')
+
+  let frontMatterBlock = match[1]
   let content = fileContent.replace(frontmatterRegex, '').trim()
-  let frontMatterLines = frontMatterBlock.trim().split('\n')
-  let metadata: Partial<Metadata> = {}
+
+  let parsed = yaml.load(frontMatterBlock)
+
+  
+
+  if (typeof parsed !== 'object' || parsed === null) {
+    throw new Error('Invalid frontmatter format')
+  }
+
+  let metadata = parsed as Metadata
+
+  console.log('Parsed metadata:', metadata)
+
+  return { metadata, content }
+}
 
   frontMatterLines.forEach((line) => {
     let [key, ...valueArr] = line.split(': ')
