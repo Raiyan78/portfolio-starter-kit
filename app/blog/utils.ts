@@ -53,6 +53,13 @@ export function getAllBlogPosts() {
   return posts.sort((a, b) => new Date(b.metadata.publishedAt).getTime() - new Date(a.metadata.publishedAt).getTime())
 }
 
+export function getArticles() {
+  const posts = getAllBlogPosts().filter((post) =>
+    ['journal', 'conference'].includes(post.metadata.type)
+  )
+  return posts
+}
+
 // This function returns only the latest five blog posts
 export function getBlogPosts() {
   const posts = getAllBlogPosts()
