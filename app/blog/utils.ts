@@ -2,12 +2,14 @@ import fs from 'fs'
 import path from 'path'
 
 type Metadata = {
+  type: string
   title: string
   publishedAt: string
   summary: string
   image?: string
   doi?: string 
   authors?: string
+  
 }
 
 function parseFrontmatter(fileContent: string) {
