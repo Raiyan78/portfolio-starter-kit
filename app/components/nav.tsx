@@ -29,6 +29,12 @@ const navItems = {
   'https://scholar.google.com/citations?user=QrDmxHwAAAAJ&hl=en': {
     name: 'Google Scholar',
   },
+  'https://linkedin.com/in/raiyan78': {
+    name: 'Linkedin',
+  },
+  'https://raiyan78.github.com': {
+    name: 'Github',
+  },
   '/cv.pdf': {
     name: 'CV',
   },
