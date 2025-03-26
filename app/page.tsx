@@ -5,7 +5,7 @@ export default function Page() {
   return (
     <section>
       <h1 className="mb-8 text-2xl font-semibold tracking-tighter">
-        Raiyan Rahman
+        A bit about me...
       </h1>
 
       {/* Wrap the image + about text in a flex container */}
@@ -24,7 +24,7 @@ export default function Page() {
         {/* About Text */}
         <div>
           <p>
-            I am currently working as a research assistant at ECE, North South University, under the supervision of  
+            Hi! My name is <b>Raiyan Rahman</b>. I am currently working as a research assistant at ECE, North South University, under the supervision of  
             <a href="https://northsouth.edu/faculty-members/seps/mathematics-physics/dr.-abul-kalam-al-azad-akad.html"><strong> Prof. Abul Kalam al Azad</strong></a> &  
             <a href="https://ece.northsouth.edu/people/dr-sifat-momen/"><strong> Prof. Sifat Momen</strong></a> 
             <br /><br />
@@ -45,7 +45,7 @@ export default function Page() {
             </p>
         </div>
 
-        
+
         </div>
 
       </div>
