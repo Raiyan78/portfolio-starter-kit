@@ -18,6 +18,8 @@ function parseFrontmatter(fileContent: string) {
   let frontMatterLines = frontMatterBlock.trim().split('\n')
   let metadata: Partial<Metadata> = {}
 
+  console.log(metadata)
+
 
   frontMatterLines.forEach((line) => {
     let [key, ...valueArr] = line.split(': ')
