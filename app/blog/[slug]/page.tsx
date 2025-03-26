@@ -1,10 +1,11 @@
 import { notFound } from 'next/navigation'
 import { CustomMDX } from 'app/components/mdx'
-import { formatDate, getAllBlogPosts } from 'app/blog/utils'
+import { formatDate, getAllBlogPosts, getArticles } from 'app/blog/utils'
 import { baseUrl } from 'app/sitemap'
 
 export async function generateStaticParams() {
-  let posts = getAllBlogPosts()
+  // let posts = getAllBlogPosts()
+  let posts = getArticles()
 
   return posts.map((post) => ({
     slug: post.slug,
