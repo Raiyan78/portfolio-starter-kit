@@ -12,7 +12,7 @@ export default function Page() {
         {/* Photo */}
         <div>
           <Image
-            src="/images/IMG_6427.jpg"
+            src="/images/pic.jpg"
             alt="Photo of Raiyan"
             width={800}
             height={800}
