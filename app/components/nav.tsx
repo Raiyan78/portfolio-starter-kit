@@ -32,7 +32,7 @@ const navItems = {
   'https://linkedin.com/in/raiyan78': {
     name: 'Linkedin',
   },
-  'https://raiyan78.github.com': {
+  'https://github.com/raiyan78': {
     name: 'Github',
   },
   '/cv.pdf': {
