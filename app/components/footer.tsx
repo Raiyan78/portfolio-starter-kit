@@ -12,7 +12,13 @@ export function Footer() {
 
   return (
     <footer className="mb-16 text-center text-neutral-600 dark:text-neutral-300">
-      <p>Last edited on {lastEdited}. Built with Next.js</p>
+      <p style={{ 
+        fontFamily: "'Courier New', Courier, monospace", 
+        fontSize: '12px',
+        color: 'white' 
+      }}>
+        Last edited on {lastEdited}. Built with Next.js
+      </p>
     </footer>
   );
 }
